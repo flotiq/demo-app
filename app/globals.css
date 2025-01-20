@@ -2,20 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html,
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply text-indigo-950;
 }
+
+main {
+  @apply text-sm lg:text-base;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  @apply text-blue-950 mb-9 lg:mb-10;
+  font-family: 'HalvarBreitschrift-Bold', 'Inter', 'sans-serif';
+}
+
+h1 {
+  @apply text-3xl lg:text-6xl mb-6 lg:mb-10;
+}
+
+h2 {
+  @apply text-xl lg:text-xl;
+}
+
+h3 {
+  @apply text-lg lg:text-xl;
+}
+
+h4 {
+  @apply text-base lg:text-lg;
+}
+
