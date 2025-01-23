@@ -1,14 +1,16 @@
+@import url("https://flotiq-form-generator-styles.s3.amazonaws.com/flotiq-form-default.css");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html,
 body {
-  @apply text-indigo-950;
+    @apply text-indigo-950;
 }
 
 main {
-  @apply text-sm lg:text-base;
+    @apply text-sm lg:text-base;
 }
 
 h1,
@@ -16,23 +18,41 @@ h2,
 h3,
 h4,
 h5 {
-  @apply text-blue-950 mb-9 lg:mb-10;
-  font-family: 'HalvarBreitschrift-Bold', 'Inter', 'sans-serif';
+    @apply text-blue-950 mb-9 lg:mb-10;
+    font-family: 'HalvarBreitschrift-Bold', 'Inter', 'sans-serif';
 }
 
 h1 {
-  @apply text-3xl lg:text-6xl mb-6 lg:mb-10;
+    @apply text-3xl lg:text-6xl mb-6 lg:mb-10;
 }
 
 h2 {
-  @apply text-xl lg:text-xl;
+    @apply text-xl lg:text-xl;
 }
 
 h3 {
-  @apply text-lg lg:text-xl;
+    @apply text-lg lg:text-xl;
 }
 
 h4 {
-  @apply text-base lg:text-lg;
+    @apply text-base lg:text-lg;
+}
+
+.flotiq-form__element {
+    margin: 5px 0;
+}
+
+.flotiq-form__element label {
+    display: none;
+}
+
+.flotiq-form__element textarea {
+    max-height: 75px;
+}
+
+.flotiq-form__button {
+    background: #3D3D3D;
+    border: none;
+    width: 100%;
 }
 

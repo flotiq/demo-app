@@ -1,5 +1,5 @@
 import { content } from '@/flotiq-api-client';
-import { ProductHydrated } from "@flotiq/flotiq-api-sdk";
+import { ProductHydrated } from '@flotiq/flotiq-api-sdk';
 import ProductCard from '@/app/_components/ProductCard/ProductCard';
 import { twMerge } from 'tailwind-merge';
 import { getDictionary } from '@/app/[lang]/dictionaries';
@@ -11,7 +11,7 @@ type HomePageParams = {
 export default async function Home({ params }: HomePageParams) {
   const { lang } = await params;
   const dict = await getDictionary(lang);
-  const productsList: ProductHydrated[] = await content.product.list({hydrate: 1})
+  const productsList: ProductHydrated[] = await content.product.list({ hydrate: 1 })
     .then((response) => {
       return response.data;
     });
@@ -32,7 +32,7 @@ export default async function Home({ params }: HomePageParams) {
           )}
         >
           {productsList.map((product: ProductHydrated) => (
-            <ProductCard product={product}  key={product.slug} lang={lang} />
+            <ProductCard product={product} key={product.slug} lang={lang}/>
           ))}
         </div>
       </div>

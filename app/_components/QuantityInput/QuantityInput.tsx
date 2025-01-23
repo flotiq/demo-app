@@ -1,9 +1,12 @@
-'use client'
-import { useState } from 'react';
-import { PlusIcon, MinusIcon } from '@heroicons/react/24/solid';
+import { MinusIcon, PlusIcon } from '@heroicons/react/24/solid';
 
-export default function QuantityInput({}) {
-  const [quantity, setQuantity] = useState(1);
+type QuantityInputProps = {
+  quantity: number,
+  setQuantity: (quantity: number) => void,
+}
+
+export default function QuantityInput({quantity, setQuantity} : QuantityInputProps) {
+
   return (
     <div className="flex items-center md:items-stretch ml-8 font-roboto bg-light-gray ">
       <button

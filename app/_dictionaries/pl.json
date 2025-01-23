@@ -1,3 +1,9 @@
 {
-  "Products": "Produkty"
+  "AddToCart": "Dodaj do koszyka",
+  "Address": "Adres",
+  "Email": "Email",
+  "Phone": "Telefon",
+  "Price": "Cena",
+  "Products": "Produkty",
+  "Quantity": "Liczba"
 }

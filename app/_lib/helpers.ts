@@ -1,5 +1,3 @@
-import { ProductHydrated, Product } from '@flotiq/flotiq-api-sdk';
-
 /**
  * Get page absolute URL based on path
  * @param {string} path - page path
@@ -25,7 +23,16 @@ export function getAssetPath(path: string): string {
   return `${subPath.replace(/\/+$/, '')}/${path.replace(/^\/*/, '')}`;
 }
 
-export function getTranslatedField(object: ProductHydrated, field: string, lang: 'en' | 'pl') {
-  return object.__translations?.find((translation: Product._translationsBase) => translation.__language == lang)?.[field]
-    || object[field];
+type Translatable<T> = {
+  __translations?: Array<{ __language: string } & Partial<T>>
+}
+
+export function getTranslatedField<T extends Translatable<T>, K extends keyof T = keyof T>(
+  object: T,
+  field: K,
+  lang: 'en' | 'pl',
+): T[K] {
+  const translation =
+    object?.__translations?.find((translation) => translation?.__language == lang);
+  return translation?.[field] as T[K] || object?.[field];
 }

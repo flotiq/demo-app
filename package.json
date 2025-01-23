@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@flotiq/flotiq-api-sdk": "^0.3.0",
-    "@flotiq/nextjs-addon": "^0.1.0",
+    "@flotiq/flotiq-api-sdk": "^0.4.3",
+    "@flotiq/nextjs-addon": "^0.1.1",
     "@formatjs/intl-localematcher": "^0.5.10",
     "@heroicons/react": "^2.2.0",
     "negotiator": "^1.0.0",

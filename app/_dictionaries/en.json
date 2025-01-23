@@ -1,3 +1,9 @@
 {
-  "Products": "Products"
+  "AddToCart": "Add to cart",
+  "Address": "Address",
+  "Email": "Email",
+  "Phone": "Phone",
+  "Price": "Price",
+  "Products": "Products",
+  "Quantity": "Quantity"
 }

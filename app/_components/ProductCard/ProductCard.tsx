@@ -3,7 +3,8 @@ import { helpers } from '@/flotiq-api-client';
 import { ProductHydrated } from '@flotiq/flotiq-api-sdk';
 import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
-
+import { getTranslatedField } from '@/app/_lib/helpers';
+import { getDictionary } from '@/app/[lang]/dictionaries';
 
 type ProductCardProps = {
   /**
@@ -13,8 +14,9 @@ type ProductCardProps = {
   lang: 'en' | 'pl',
 }
 
-export default function ProductCard({ product, lang }: ProductCardProps) {
+export default async function ProductCard({ product, lang }: ProductCardProps) {
   const productImage = product.productImage?.[0];
+  const dict = await getDictionary(lang);
   return (
     <div
       className={twMerge(
@@ -41,8 +43,8 @@ export default function ProductCard({ product, lang }: ProductCardProps) {
       )}
 
       <div className="flex flex-col gap-1 lg:gap-2 w-full">
-        <h3 className="text-base/[20px] lg:text-2xl mb-0 mt-2">{product.name}</h3>
-        <p className="text-base lg:text-lg">Price: ${product.price}</p>
+        <h3 className="text-base/[20px] lg:text-2xl mb-0 mt-2">{getTranslatedField(product, 'name', lang)}</h3>
+        <p className="text-base lg:text-lg">{dict.Price}: ${product.price}</p>
       </div>
     </div>
   );

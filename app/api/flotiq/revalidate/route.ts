@@ -1,12 +1,13 @@
-import { revalidateTag } from "next/cache";
-import { NextRequest, NextResponse } from "next/server";
+import { revalidateTag } from 'next/cache';
+import { NextRequest, NextResponse } from 'next/server';
+
 export async function POST(req: NextRequest) {
-  const editorKey = req.headers.get("x-editor-key") || "";
+  const editorKey = req.headers.get('x-editor-key') || '';
 
   if (editorKey !== process.env.FLOTIQ_EDITOR_KEY) {
-    return new Response("Unauthorized", { status: 401 });
+    return new Response('Unauthorized', { status: 401 });
   }
 
-  revalidateTag("flotiq-content");
+  revalidateTag('flotiq-content');
   return new NextResponse(undefined, { status: 204 });
 }
