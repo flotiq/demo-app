@@ -1,17 +1,17 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+Prepare .env.local file (data and plugins are :
+```
+FLOTIQ_API_KEY=RO_KEY
+FLOTIQ_EDITOR_KEY=KEY_FROM_PREVIEW_PLUGIN
+PUBLIC_URL=http://localhost:3000
+```
+
+Run the development server:
 
 ```bash
-npm run dev
-# or
+yarn
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

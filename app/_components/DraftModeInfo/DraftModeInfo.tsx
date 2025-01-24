@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-export function DraftModeInfo({ editorKey }: { editorKey: string }) {
+export function DraftModeInfo({ editorKey }: { readonly editorKey: string }) {
   const pathname = usePathname();
 
   return (
@@ -13,6 +13,7 @@ export function DraftModeInfo({ editorKey }: { editorKey: string }) {
         <Link
           href={`/api/flotiq/draft?key=${editorKey || ''}&draft=false&redirect=${encodeURIComponent(pathname)}`}
           className="m-2 hover:text-red font-bold"
+          prefetch={false}
         >
           ✕
         </Link>

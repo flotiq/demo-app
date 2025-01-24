@@ -2,10 +2,9 @@
 
 import { usePathname } from 'next/navigation'
 import Link from 'next/link';
-import { twMerge } from 'tailwind-merge';
 
 type LanguageSwitcherProps = {
-  lang: 'en' | 'pl',
+  readonly lang: 'en' | 'pl',
 }
 
 export default function LanguageSwitcher({ lang }: LanguageSwitcherProps) {
@@ -14,7 +13,7 @@ export default function LanguageSwitcher({ lang }: LanguageSwitcherProps) {
     <div className="absolute right-2 top-0">
       <Link
         href={pathname?.replace('\/pl', '/en') || '/en'}
-        className={twMerge(lang === 'en' && 'font-bold pointer-events-none')}
+        className={lang === 'en' ? 'font-bold pointer-events-none' : ''}
         aria-disabled={lang === 'en'}
       >
         EN
@@ -22,7 +21,7 @@ export default function LanguageSwitcher({ lang }: LanguageSwitcherProps) {
       {' '}|{' '}
       <Link
         href={pathname?.replace('\/en', '/pl') || '/pl'}
-        className={twMerge(lang === 'pl' && 'font-bold pointer-events-none')}
+        className={lang === 'pl' ? 'font-bold pointer-events-none' : ''}
         aria-disabled={lang === 'en'}
       >
         PL

@@ -1,7 +1,6 @@
 import { content, helpers } from '@/flotiq-api-client';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { twMerge } from 'tailwind-merge';
 import { getTranslatedField } from '@/app/_lib/helpers';
 import CartForm from '@/app/_components/CartForm/CartForm';
 import { getDictionary } from '@/app/[lang]/dictionaries';
@@ -32,9 +31,7 @@ export default async function ProductPage({ params }: ProductPageParams) {
         <div className="flex basis-full lg:basis-1/2">
           {productImage && (
             <Image
-              className={twMerge(
-                'w-full rounded-md h-fit',
-              )}
+              className="w-full rounded-md h-fit"
               src={helpers.getMediaUrl(productImage)}
               height={423}
               width={752}

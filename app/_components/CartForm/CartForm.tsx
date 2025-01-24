@@ -3,14 +3,13 @@
 import QuantityInput from '@/app/_components/QuantityInput/QuantityInput';
 import { useState } from 'react';
 import { ProductHydrated } from '@flotiq/flotiq-api-sdk';
-import { twMerge } from 'tailwind-merge';
 
 type CartFormParams = {
-  dict: {
-    Quantity: string,
-    AddToCart: string,
+  readonly dict: {
+    readonly Quantity: string,
+    readonly AddToCart: string,
   },
-  product: ProductHydrated,
+  readonly product: ProductHydrated,
 }
 
 export default function CartForm({ dict, product }: CartFormParams) {
@@ -21,16 +20,18 @@ export default function CartForm({ dict, product }: CartFormParams) {
     <>
       <div className="flex space-x-2 mt-2">
         {product?.sizes?.map((size) => (
-          <div
+          <button
+            type="button"
             key={size.id}
-            className={twMerge(
-              'p-3 border border-gray rounded-md cursor-pointer min-w-[48px] text-center',
-              chosenSize === size.size && 'border-2'
-            )}
+            className={
+              `p-3 border border-gray rounded-md cursor-pointer min-w-[48px] text-center ${
+                chosenSize === size.size && 'border-2'
+              }`
+            }
             onClick={() => setChosenSize(size.size)}
           >
             {size.size}
-          </div>
+          </button>
         ))}
       </div>
       <div className="flex items-center text-xl font-light py-7 uppercase">

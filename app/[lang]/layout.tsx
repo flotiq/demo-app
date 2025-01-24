@@ -23,7 +23,7 @@ export default async function RootLayout(
     params
   }: Readonly<{
     children: ReactNode
-    params: { lang: 'en' | 'pl' }
+    params: Promise<{ lang: 'en' | 'pl' }>
   }>
 ) {
   const { isEnabled } = await draftMode();

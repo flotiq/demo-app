@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { getDictionary } from '@/app/[lang]/dictionaries';
 
 type FooterProps = {
-  lang: 'en' | 'pl',
+  readonly lang: 'en' | 'pl',
 }
 
 export default async function Footer({ lang }: FooterProps) {

@@ -1,8 +1,8 @@
 import { MinusIcon, PlusIcon } from '@heroicons/react/24/solid';
 
 type QuantityInputProps = {
-  quantity: number,
-  setQuantity: (quantity: number) => void,
+  readonly quantity: number,
+  readonly setQuantity: (quantity: number) => void,
 }
 
 export default function QuantityInput({quantity, setQuantity} : QuantityInputProps) {
