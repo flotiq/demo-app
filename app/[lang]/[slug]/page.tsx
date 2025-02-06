@@ -32,7 +32,7 @@ export default async function ProductPage({ params }: ProductPageParams) {
           {productImage && (
             <Image
               className="w-full rounded-md h-fit"
-              src={helpers.getMediaUrl(productImage)}
+              src={helpers.getMediaUrl(productImage, {width: 610})}
               height={423}
               width={752}
               alt={productImage.alt || product.name}
