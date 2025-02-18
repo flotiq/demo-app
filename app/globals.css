@@ -27,16 +27,30 @@ h1 {
 }
 
 h2 {
-    @apply text-xl lg:text-xl;
+    @apply text-2xl lg:text-3xl font-bold;
 }
 
 h3 {
-    @apply text-lg lg:text-xl;
+    @apply text-xl lg:text-2xl font-bold;
 }
 
 h4 {
     @apply text-base lg:text-lg;
 }
+
+ul,
+ol {
+    @apply pb-4 list-inside space-y-1;
+}
+
+ul {
+    @apply list-disc;
+}
+
+ol {
+    @apply list-decimal;
+}
+
 
 .flotiq-form__element {
     margin: 5px 0;
