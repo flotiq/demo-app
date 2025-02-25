@@ -1,7 +1,7 @@
 {
   "name": "product",
   "label": "Product",
-  "workflowId": "draft_public_archive",
+  "draftPublic": true,
   "internal": false,
   "schemaDefinition": {
     "type": "object",

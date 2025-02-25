@@ -1,7 +1,6 @@
 {
   "name": "size",
   "label": "Size",
-  "workflowId": "generic",
   "internal": false,
   "schemaDefinition": {
     "type": "object",
