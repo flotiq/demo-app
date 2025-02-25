@@ -1,7 +1,6 @@
 {
   "name": "contact_form",
   "label": "Contact form",
-  "workflowId": "generic",
   "internal": false,
   "schemaDefinition": {
     "type": "object",
