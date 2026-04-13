@@ -14,6 +14,7 @@ export async function GET(req: NextRequest) {
   const newDraft = req.nextUrl.searchParams.has('draft')
     ? req.nextUrl.searchParams.get('draft') === 'true'
     : !draftState.isEnabled;
+
   if (newDraft) {
     draftState.enable();
   } else {

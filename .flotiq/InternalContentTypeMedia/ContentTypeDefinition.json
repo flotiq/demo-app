@@ -1,6 +1,7 @@
 {
   "name": "_media",
   "label": "Media (internal)",
+  "draftPublic": false,
   "internal": true,
   "schemaDefinition": {
     "type": "object",
@@ -19,8 +20,7 @@
             "minLength": 1
           },
           "size": {
-            "type": "number",
-            "minLength": 1
+            "type": "number"
           },
           "tags": {
             "type": "array",
@@ -32,6 +32,9 @@
           "type": {
             "type": "string",
             "minLength": 1
+          },
+          "title": {
+            "type": "string"
           },
           "width": {
             "type": "number"
@@ -55,9 +58,7 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": [
-                "name"
-              ],
+              "required": ["name"],
               "properties": {
                 "name": {
                   "type": "string",
@@ -66,10 +67,7 @@
                 },
                 "trim": {
                   "type": "object",
-                  "required": [
-                    "top",
-                    "left"
-                  ],
+                  "required": ["top", "left"],
                   "properties": {
                     "top": {
                       "type": "number",
@@ -142,6 +140,7 @@
       "type",
       "tags",
       "alt",
+      "title",
       "variants"
     ],
     "propertiesConfig": {
@@ -173,11 +172,13 @@
       "type": {
         "label": "Type",
         "unique": false,
-        "options": [
-          "image",
-          "file"
-        ],
+        "options": ["image", "file"],
         "inputType": "select"
+      },
+      "title": {
+        "label": "Title",
+        "unique": false,
+        "inputType": "text"
       },
       "width": {
         "label": "Width",
@@ -192,10 +193,7 @@
       "source": {
         "label": "Source",
         "unique": false,
-        "options": [
-          "disk",
-          "unsplash"
-        ],
+        "options": ["disk", "unsplash"],
         "inputType": "select"
       },
       "fileName": {
@@ -211,10 +209,7 @@
       },
       "variants": {
         "items": {
-          "order": [
-            "name",
-            "trim"
-          ],
+          "order": ["name", "trim"],
           "propertiesConfig": {
             "name": {
               "label": "name",
@@ -223,14 +218,7 @@
             },
             "trim": {
               "label": "Trim",
-              "order": [
-                "top",
-                "right",
-                "bottom",
-                "left",
-                "width",
-                "height"
-              ],
+              "order": ["top", "right", "bottom", "left", "width", "height"],
               "unique": false,
               "inputType": "custom",
               "propertiesConfig": {
