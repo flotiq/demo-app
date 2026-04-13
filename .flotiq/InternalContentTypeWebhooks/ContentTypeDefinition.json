@@ -1,6 +1,7 @@
 {
   "name": "_webhooks",
   "label": "Webhooks (internal)",
+  "draftPublic": false,
   "internal": true,
   "schemaDefinition": {
     "type": "object",
@@ -100,11 +101,7 @@
         }
       }
     ],
-    "required": [
-      "name",
-      "content_type_definitions",
-      "actions"
-    ],
+    "required": ["name", "content_type_definitions", "actions"],
     "additionalProperties": false
   },
   "metaDefinition": {
@@ -142,19 +139,13 @@
       "type": {
         "label": "Webhook type",
         "unique": false,
-        "options": [
-          "async",
-          "sync",
-          "ctd"
-        ],
+        "options": ["async", "sync", "ctd"],
         "helpText": "Select webhook type",
         "inputType": "select"
       },
       "actions": {
         "items": {
-          "order": [
-            "action"
-          ],
+          "order": ["action"],
           "propertiesConfig": {
             "action": {
               "label": "Action",
@@ -163,6 +154,9 @@
                 "Create",
                 "Update",
                 "Delete",
+                "Publish",
+                "Unpublish",
+                "Archive",
                 "Custom",
                 "WorkflowTransition"
               ],
@@ -184,10 +178,7 @@
       },
       "headers": {
         "items": {
-          "order": [
-            "header_name",
-            "header_value"
-          ],
+          "order": ["header_name", "header_value"],
           "propertiesConfig": {
             "header_name": {
               "label": "Header name",
@@ -211,18 +202,13 @@
       "executionMode": {
         "label": "Webhook execution mode",
         "unique": false,
-        "options": [
-          "url",
-          "code"
-        ],
+        "options": ["url", "code"],
         "helpText": "Select webhook execution mode (only in available sync webhook)",
         "inputType": "select"
       },
       "content_type_definitions": {
         "items": {
-          "order": [
-            "content_type_definition_name"
-          ],
+          "order": ["content_type_definition_name"],
           "propertiesConfig": {
             "content_type_definition_name": {
               "label": "Content type definition name",

@@ -4,13 +4,14 @@
  * @param {boolean} trailingSlash - if page should have trailing slash at the end
  * @returns {string} page absolute URL
  */
-export function getAbsoluteUrl(path?: string, trailingSlash: boolean = true): string {
-  const baseURL =
-    `${(process.env.PUBLIC_URL || 'https://demo-shop.com').replace(/\/+$/, '')}${trailingSlash ? '/' : ''}`;
+export function getAbsoluteUrl(
+  path?: string,
+  trailingSlash: boolean = true,
+): string {
+  const baseURL = `${(process.env.PUBLIC_URL || 'https://demo-shop.com').replace(/\/+$/, '')}${trailingSlash ? '/' : ''}`;
   if (!path) return baseURL;
   return `${baseURL.replace(/\/+$/, '')}/${path.replace(/^\/*/, '')}${trailingSlash ? '/' : ''}`;
 }
-
 
 /**
  * Get asset path with sub-path name
@@ -24,15 +25,19 @@ export function getAssetPath(path: string): string {
 }
 
 type Translatable<T> = {
-  __translations?: Array<{ __language: string } & Partial<T>>
+  __translations?: Array<{ __language: string } & Partial<T>>;
+};
+
+export function getTranslatedField<
+  T extends Translatable<T>,
+  K extends keyof T = keyof T,
+>(object: T, field: K, lang: string): T[K] {
+  const translation = object?.__translations?.find(
+    (translation) => translation?.__language == lang,
+  );
+  return (translation?.[field] as T[K]) || object?.[field];
 }
 
-export function getTranslatedField<T extends Translatable<T>, K extends keyof T = keyof T>(
-  object: T,
-  field: K,
-  lang: 'en' | 'pl',
-): T[K] {
-  const translation =
-    object?.__translations?.find((translation) => translation?.__language == lang);
-  return translation?.[field] as T[K] || object?.[field];
+export function getFieldName(key: string, lang: string): string {
+  return lang === 'en' ? key : `__translations.[0].${key}`;
 }

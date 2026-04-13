@@ -1,6 +1,7 @@
 {
   "name": "contact_form",
   "label": "Contact form",
+  "draftPublic": false,
   "internal": false,
   "schemaDefinition": {
     "type": "object",
@@ -21,32 +22,22 @@
             "minLength": 1
           },
           "question": {
-            "type": "string",
-            "minLength": 1
+            "type": "string"
           }
         }
       }
     ],
-    "required": [
-      "name",
-      "email",
-      "question"
-    ],
+    "required": ["name", "email"],
     "additionalProperties": false
   },
   "metaDefinition": {
-    "order": [
-      "name",
-      "email",
-      "question"
-    ],
+    "order": ["name", "email", "question"],
     "propertiesConfig": {
       "name": {
         "label": "Name",
         "unique": false,
         "helpText": "",
-        "inputType": "text",
-        "isTitlePart": true
+        "inputType": "text"
       },
       "email": {
         "label": "Email",

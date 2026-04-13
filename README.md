@@ -1,10 +1,20 @@
 ## Getting Started
 
-Prepare .env.local file (data and plugins are :
+Import data to your space:
+```bash
+npx flotiq-cli import .flotiq [flotiqApiKey]
+```
+
+Prepare .env.local file (data and plugins):
 ```
 FLOTIQ_API_KEY=RO_KEY
 FLOTIQ_EDITOR_KEY=KEY_FROM_PREVIEW_PLUGIN
 PUBLIC_URL=http://localhost:3000
+```
+
+or use flotiq-setup:
+```bash
+npx flotiq-setup --nextjs
 ```
 
 Run the development server:
@@ -16,9 +26,20 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Enable eslint and prettier in the IDE when making changes to the code.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+For ensuring correct formatting:
+
+```
+yarn lint
+yarn format
+```
+
+If there was changed to types in Flotiq run:
+
+```
+yarn exec flotiq-api-typegen
+```
 
 ## Learn More
 
